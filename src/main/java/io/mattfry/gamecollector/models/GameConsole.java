@@ -51,4 +51,12 @@ public class GameConsole {
 		// TODO Auto-generated method stub
 		return id;
 	}
+
+
+	@Override
+	public String toString() {
+		return "GameConsole [id=" + id + ", consoleName=" + consoleName + ", shortName=" + shortName + ", game=" + game
+				+ "]";
+	}
+	
 }
