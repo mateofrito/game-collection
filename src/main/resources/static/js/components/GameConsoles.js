@@ -6,9 +6,9 @@ export default function GameConsoles(gameconsoles) {
         ${gameconsoles.map(gameconsole => {
             return `
                 <li class="console">
-                <h3 class="console__name">${GameConsole.consoleName} ${GameConsole.shortName}</h3>
+                <h3 class="console__name">${gameconsole.consoleName} ${gameconsole.shortName}</h3>
                 <ul class="games">
-                    ${Games(GameConsole.game)}
+                    ${Games(gameconsole.game)}
                 </ul>
                 </li>
             `;
@@ -16,7 +16,7 @@ export default function GameConsoles(gameconsoles) {
       </ul>
       <section class="add-console">
         <input type="text" class="add-console__full-name" placeholder="Console Name">
-        <input type="text" class="add-author__short-name" placeholder="Console Short Name">
+        <input type="text" class="add-console__short-name" placeholder="Console Short Name">
         <button class="add-console__submit">Add Console</button>
       </section>
     `;

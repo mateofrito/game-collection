@@ -8,7 +8,6 @@ import io.mattfry.gamecollector.models.Game;
 @Repository
 public interface GameRepository extends CrudRepository<Game, Long> {
 
-	Game findByGameTitle (String gameTitle);
 	
 	
 	

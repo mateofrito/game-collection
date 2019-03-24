@@ -8,6 +8,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 public class GameConsole {
 	
@@ -16,8 +18,10 @@ public class GameConsole {
 	private Long id;
 	private String consoleName;
 	private String shortName;
+	
+	//@JsonIgnore
 	@OneToMany(mappedBy="gameConsole")
-	private Collection<Game> game = new ArrayList<Game>();
+	private Collection<Game> games;
 	
 	public GameConsole() {
 		
@@ -28,7 +32,7 @@ public class GameConsole {
 		
 		this.consoleName = consoleName;
 		this.shortName = shortName;
-		this.game = game;
+		this.games  = new ArrayList<Game>();
 	}
 	
 	public String getConsoleName() {
@@ -36,7 +40,7 @@ public class GameConsole {
 	}
 	
 	public Collection<Game> getGame(){
-		return game;
+		return games;
 	}
 	
 	
@@ -55,8 +59,9 @@ public class GameConsole {
 
 	@Override
 	public String toString() {
-		return "GameConsole [id=" + id + ", consoleName=" + consoleName + ", shortName=" + shortName + ", game=" + game
-				+ "]";
+		return "GameConsole [id=" + id + ", consoleName=" + consoleName + ", shortName=" + shortName + "]";
 	}
+	
+	
 	
 }

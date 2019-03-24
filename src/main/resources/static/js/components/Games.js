@@ -1,10 +1,10 @@
 export default function Games(games) {
-    return games
-        .map(game => {
+    return games.map(game => {
             return `
-                <li class="book">
-                    <h5 class="book__title">${game.title}</h5>
-                    <p class="book__description">${game.yearreleased}</p>
+                <li class="game">
+                    <h5 class="game__title">${game.gameTitle}</h5>
+                    <p class="game__yearreleased">${game.yearReleased}</p>
+                    <p class"game__imagepath">${game.imagePath}</p>
                 </li>
             `;
         }).join('')

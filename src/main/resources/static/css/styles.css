@@ -1,0 +1,32 @@
+@font-face {
+    font-family: mariofont;
+    src: url(./SuperMarioBrosNES.ttf);
+  }
+  
+  .header{
+     font-family: mariofont;
+     src: url(./SuperMarioBrosNES.ttf);
+     color: white;
+     background-color: black;
+     float: left;
+     width: 100%;
+     position: fixed;
+     
+
+  }
+
+  .mario{
+      max-width: 45px;
+      float: left;
+      margin-top: 10px;
+      padding-right: 10px;
+      padding-left: 10px;
+      
+
+
+  }
+
+  .app{
+      margin-top: 55px;
+
+  }

@@ -1,0 +1,23 @@
+{
+  "name": "game-collection",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "parcel build src/main/resources/static/html/index.html && rm src/main/resources/static/*.html  && rm src/main/resources/static/*.js  && rm src/main/resources/static/*.js.map && mv ./dist/* src/main/resources/static && rm -rf dist"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mateofrito/game-collection.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mateofrito/game-collection/issues"
+  },
+  "homepage": "https://github.com/mateofrito/game-collection#readme",
+  "dependencies": {
+    "parcel-bundler": "^1.12.3"
+  }
+}

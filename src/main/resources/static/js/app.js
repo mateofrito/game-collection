@@ -12,13 +12,13 @@ function main() {
 
   events.on(getAppContext(), 'click', () => {
     if (event.target.classList.contains('add-console__submit')) {
-      const firstName = document.querySelector('.add-console__full-name').value
-      const lastName = document.querySelector('.add-console__short-name').value
+      const consoleName = document.querySelector('.add-console__full-name').value
+      const shortName = document.querySelector('.add-console__short-name').value
 
       api.postRequest('/consoles/add', {
         consoleName: consoleName,
         shortName: shortName
-      }, (authors) => getAppContext().innerHTML = GameConsoles(gameconsoles))
+      }, (gameconsoles) => getAppContext().innerHTML = GameConsoles(gameconsoles))
     }
   })
 }

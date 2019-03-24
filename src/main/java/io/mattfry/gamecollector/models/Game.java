@@ -13,14 +13,15 @@ public class Game {
 	@Id
 	@GeneratedValue
 	private Long id;
-
 	private String gameTitle;
+	private String yearReleased;
+	private String imagePath;
 	
 	@ManyToOne
 	@JsonIgnore
 	private GameConsole gameConsole;
-	private String yearReleased;
-	private String imagePath;
+
+	
 
 	
     public Game() {}
@@ -32,15 +33,15 @@ public class Game {
 
 
 
-	public Game(String gameTitle, GameConsole gameConsole, String yearReleased, String imagePath) {
+	public Game(String gameTitle, String yearReleased, String imagePath, GameConsole gameConsole) {
 			this.gameTitle = gameTitle;
-			this.gameConsole = gameConsole;
 			this.yearReleased = yearReleased;
 			this.imagePath = imagePath;
+			this.gameConsole = gameConsole;
 
 	}
 	
-	public GameConsole getConsoleName(){
+	public GameConsole getGameConsole(){
 		return gameConsole;
 		
 	}
@@ -53,12 +54,27 @@ public class Game {
 	public String getGameTitle() {
 		return gameTitle;
 	}
-	
-	
+	public String getYearReleased() {
+		return yearReleased;
+	}
+	public String getImagePath() {
+		return imagePath;
+	}
+
+
+
+
+
+
+
 
 	@Override
 	public String toString() {
-		return "Game [gameTitle=" + gameTitle + ", gameConsole=" + gameConsole + ", yearReleased=" + yearReleased
-				+ ", imagePath=" + imagePath + "]";
+		return "Game [id=" + id + ", gameTitle=" + gameTitle + ", yearReleased=" + yearReleased + ", imagePath="
+				+ imagePath + "]";
 	}
+	
+	
+
+	
 }
