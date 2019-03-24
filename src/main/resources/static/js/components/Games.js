@@ -4,7 +4,7 @@ export default function Games(games) {
                 <li class="game">
                     <h5 class="game__title">${game.gameTitle}</h5>
                     <p class="game__yearreleased">${game.yearReleased}</p>
-                    <p class"game__imagepath">${game.imagePath}</p>
+                    <p class="game__imagepath">${game.imagePath}</p>
                 </li>
             `;
         }).join('')
