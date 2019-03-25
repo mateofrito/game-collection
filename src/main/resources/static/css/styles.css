@@ -46,9 +46,17 @@
     .console{
         margin-top: 80px;
     }
+    .game{
+      background-color: gray;
+      text-align: left;
+
+
+    }
 
     .game__imagepath{
-        float: left;
+        
+        max-width: 268px;;
+        width: 100%
     }
     .console-trigger{
         font-size: 25px;
