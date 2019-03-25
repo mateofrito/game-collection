@@ -6,7 +6,7 @@ export default function GameConsoles(gameconsoles) {
         ${gameconsoles.map(gameconsole => {
             return `
            <li class="console">
-            <h3 class="console__name">${gameconsole.consoleName} ${gameconsole.shortName}</h3>
+            <h3 class="console__name">${gameconsole.consoleName}</h3>
             <ul class="games">
             ${Games(gameconsole.game)}
             </ul>
