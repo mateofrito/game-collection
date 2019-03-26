@@ -18,6 +18,7 @@ public class GameConsole {
 	private Long id;
 	private String consoleName;
 	private String shortName;
+	private String imagePath;
 	
 	//@JsonIgnore
 	@OneToMany(mappedBy="gameConsole")
@@ -28,11 +29,12 @@ public class GameConsole {
 	}
 	
 	
-	public GameConsole(String consoleName, String shortName) {
+	public GameConsole(String consoleName, String shortName, String imagePath) {
 		
 		this.consoleName = consoleName;
 		this.shortName = shortName;
 		this.games  = new ArrayList<Game>();
+		this.imagePath = imagePath;
 	}
 	
 	public String getConsoleName() {
@@ -47,6 +49,10 @@ public class GameConsole {
 	public String getShortName() {
 		return shortName;
 	}
+	
+	public String getImagePath() {
+		return imagePath;
+	}
 
 
 
@@ -56,11 +62,14 @@ public class GameConsole {
 		return id;
 	}
 
-
 	@Override
 	public String toString() {
-		return "GameConsole [id=" + id + ", consoleName=" + consoleName + ", shortName=" + shortName + "]";
+		return "GameConsole [id=" + id + ", consoleName=" + consoleName + ", shortName=" + shortName + ", imagePath="
+				+ imagePath + ", games=" + games + "]";
 	}
+
+
+	
 	
 	
 	

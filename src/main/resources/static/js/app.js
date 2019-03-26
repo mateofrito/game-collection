@@ -15,10 +15,12 @@ function main() {
           if (event.target.classList.contains('add-console__submit')) {
             const consoleName = document.querySelector('.add-console__full-name').value
             const shortName = document.querySelector('.add-console__short-name').value
+            const imagePath = document.querySelector('add-console__image-path').value
             
               api.postRequest('/consoles/add', {
               consoleName: consoleName,
-              shortName: shortName
+              shortName: shortName,
+              imagePath: imagePath
             }, (gameconsoles) => getAppContext().innerHTML = GameConsoles(gameconsoles))
           }
 

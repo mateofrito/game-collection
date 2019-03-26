@@ -22,12 +22,12 @@ public class Initializer implements CommandLineRunner {
 
 	@Override
 	public void run(String... args) throws Exception {
-		GameConsole console1 = consoleRepo.save(new GameConsole("Nintendo Entertainment System", "NES"));
-		GameConsole console2 = consoleRepo.save(new GameConsole("Super Nintendo Entertainment System", "SNES"));
-		GameConsole console3 = consoleRepo.save(new GameConsole("Nintendo 64", "N64"));
-		GameConsole console4 = consoleRepo.save(new GameConsole("Nintendo GameCube", "GCN"));
-		GameConsole console5 = consoleRepo.save(new GameConsole("Nintendo Wii", "Wii"));
-		GameConsole console7 = consoleRepo.save(new GameConsole("Nintendo Wii U", "Wii U"));
+		GameConsole console1 = consoleRepo.save(new GameConsole("Nintendo Entertainment System", "NES","http://mattfry.io/consoleicons/nes.png"));
+		GameConsole console2 = consoleRepo.save(new GameConsole("Super Nintendo Entertainment System", "SNES","http://mattfry.io/consoleicons/snes.png"));
+		GameConsole console3 = consoleRepo.save(new GameConsole("Nintendo 64", "N64","http://mattfry.io/consoleicons/n64.png"));
+		GameConsole console4 = consoleRepo.save(new GameConsole("Nintendo GameCube", "GCN","http://mattfry.io/consoleicons/gcn.png"));
+		GameConsole console5 = consoleRepo.save(new GameConsole("Nintendo Wii", "Wii","http://mattfry.io/consoleicons/wii.png"));
+		GameConsole console7 = consoleRepo.save(new GameConsole("Nintendo Wii U", "Wii U" ,"http://mattfry.io/consoleicons/wiiu.png"));
 		
 		Game game4 = gameRepo.save(new Game("Super Mario Bros", "1985", "http://mattfry.io/gameimages/smb.jpg", console1));
 		Game game5 = gameRepo.save(new Game("Super Mario Bros 2", "1987", "http://mattfry.io/gameimages/smb2.jpg", console1));

@@ -35,8 +35,13 @@ public class GameConsoleController {
 		JSONObject json = new JSONObject(body);
 		String consoleName = json.getString("consoleName");
 		String shortName = json.getString("shortName");
+		String imagePath = json.getString("imagePath");
 		
-		consoleRepo.save(new GameConsole(consoleName, shortName));
+		if (imagePath.isEmpty()) {
+			imagePath = "http://mattfry.io/consoleicons/consolegeneric.png";
+		}
+		
+		consoleRepo.save(new GameConsole(consoleName, shortName, imagePath));
 		
 		return(Collection<GameConsole>) consoleRepo.findAll();
 		

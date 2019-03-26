@@ -11,6 +11,7 @@ export default function GameConsoles(gameconsoles) {
                 <span class="close-button">X</span>
                 <input type="text" class="add-console__full-name" placeholder="Console Name">
                 <input type="text" class="add-console__short-name" placeholder="Console Short Name">
+                <input type="text" class="add-console__image-path" placeholder="image URL">
                 <button class="add-console__submit">Add Console</button>
         </div>
    </div>
@@ -27,7 +28,10 @@ export default function GameConsoles(gameconsoles) {
         ${gameconsoles.map(gameconsole => {
             return `
            <li class="console">
-            <h3 class="console__name">${gameconsole.consoleName}</h3>
+            <section class="console__header">
+                <img class="console__imagepath" src="${gameconsole.imagePath}"></img>
+                <h3 class="console__name">${gameconsole.consoleName}</h3>
+            </section>
             <ul class="games">
             ${Games(gameconsole.game)}
             </ul>

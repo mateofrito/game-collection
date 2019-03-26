@@ -207,4 +207,15 @@
 .games{
     text-align: left;
 }
+
+.console__header{
+  text-align: left;
+  width: 100%;
+  background-color: red;
+  color: white;
+}
+
+console__imagepath{
+  float: left;
+}
   
