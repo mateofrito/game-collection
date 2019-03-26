@@ -32,37 +32,37 @@ function main() {
             consolemodal.classList.toggle("show-consolemodal");
           }
           
-          function windowOnClick(event) {
+          function windowOnConsoleClick(event) {
             if (event.target === consolemodal) {
                 toggleConsoleModal();
             }
           }
           consoletrigger.addEventListener("click", toggleConsoleModal);
           closeButton.addEventListener("click", toggleConsoleModal);
-          window.addEventListener("click", windowOnClick);
+          window.addEventListener("click", windowOnConsoleClick);
 
         }
 
         //add game modal
-        if (event.target.classList.contains('game-trigger')){
-          var gameemodal = document.querySelector(".modal-gamee");
-          var gametrigger = document.querySelector(".game-trigger")
-          var closeButton2 = document.querySelector(".close-button2");
+        // if (event.target.classList.contains('game-trigger')){
+        //   var gamemodal = document.querySelector(".modal-game");
+        //   var gametrigger = document.querySelector(".game-trigger")
+        //   var closeButton2 = document.querySelector(".close-button2");
           
-          function toggleGameModal() {
-            gamemodal.classList.toggle("show-gamemodal");
-          }
+        //   function toggleGameModal() {
+        //     gamemodal.classList.toggle("show-gamemodal");
+        //   }
           
-          function windowOnClick(event) {
-            if (event.target === gamemodal) {
-                toggleGameModal();
-            }
-          }
-          gametrigger.addEventListener("click", toggleGameModal);
-          closeButton2.addEventListener("click", toggleGameModal);
-          window.addEventListener("click", windowOnClick);
+        //   function windowOnGameClick(event) {
+        //     if (event.target === gamemodal) {
+        //         toggleGameModal();
+        //     }
+        //   }
+        //   gametrigger.addEventListener("click", toggleGameModal);
+        //   closeButton2.addEventListener("click", toggleGameModal);
+        //   window.addEventListener("click", windowOnGameClick);
 
-        }
+        // }
 
 
 
