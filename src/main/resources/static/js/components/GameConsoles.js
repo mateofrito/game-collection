@@ -38,13 +38,7 @@ export default function GameConsoles(gameconsoles) {
             </li>
             `;
           }).join('')}
-          </ul>
-          <section class="add-console">
-          <input type="text" class="add-console__full-name" placeholder="Console Name">
-          <input type="text" class="add-console__short-name" placeholder="Console Short Name">
-          <button class="add-console__submit">Add Console</button>
-          </section>
-        </li>
+         
           `;
         }
 

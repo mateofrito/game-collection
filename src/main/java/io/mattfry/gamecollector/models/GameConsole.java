@@ -33,8 +33,8 @@ public class GameConsole {
 		
 		this.consoleName = consoleName;
 		this.shortName = shortName;
-		this.games  = new ArrayList<Game>();
 		this.imagePath = imagePath;
+		this.games  = new ArrayList<Game>();
 	}
 	
 	public String getConsoleName() {

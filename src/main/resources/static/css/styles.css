@@ -23,6 +23,7 @@
   .console__name{
     font-family: mariofont;
      src: url(./SuperMarioBrosNES.ttf);
+     padding-top: 20px;
 
 
   }
@@ -213,9 +214,15 @@
   width: 100%;
   background-color: red;
   color: white;
+  height: 50px;
 }
 
-console__imagepath{
+.console__imagepath{
   float: left;
+}
+
+.console__imagepath{
+  padding-bottom: 20px;
+  padding-right: 5px;
 }
   
