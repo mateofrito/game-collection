@@ -23,7 +23,8 @@
   .console__name{
     font-family: mariofont;
      src: url(./SuperMarioBrosNES.ttf);
-     padding-top: 20px;
+     padding-top: 13px;
+     font-size: 24px;
 
 
   }
@@ -92,16 +93,17 @@
         max-width: 100px;;
         width: 100%
     }
+    .game-trigger{
+      font-size: 25px;
+    }
     .console-trigger{
         font-size: 25px;
         
       }
 
-      .game-trigger{
-        font-size: 25px;
-      }
 
     .modal-console{
+            
             position: fixed;
             left: 0;
             top: 10px;
@@ -152,6 +154,8 @@
             transform: scale(1.0);
             transition: visibility 0s linear 0s, opacity 0.25s 0s, transform 0.25s;
           }
+
+         
 
           .modal-game{
             position: fixed;
@@ -205,24 +209,42 @@
             transition: visibility 0s linear 0s, opacity 0.25s 0s, transform 0.25s;
           }
 
-.games{
-    text-align: left;
-}
-
-.console__header{
-  text-align: left;
-  width: 100%;
-  background-color: red;
-  color: white;
-  height: 50px;
-}
-
-.console__imagepath{
-  float: left;
-}
-
-.console__imagepath{
-  padding-bottom: 20px;
-  padding-right: 5px;
-}
+          
+          .console__header{
+            margin: 2px;
+            cursor: pointer;
+            text-align: left;
+            width: 100%;
+            background-color: red;
+            color: white;
+            height: 50px;
+            transition: 0.4s;
+            
+          }
+          
+          .console__header:hover{
+            background-color: black;
+          }
+          
+          .console__imagepath{
+            float: left;
+          }
+          
+          .console__imagepath{
+            padding-bottom: 20px;
+            padding-right: 5px;
+          }
   
+          .panel {
+            padding: 0 18px;
+            display: none;
+            background-color: white;
+            overflow: hidden;
+          }
+         .games{
+           text-align: left;
+           padding: 0 18px;
+            display: none;
+            background-color: white;
+            overflow: hidden;
+                              }
