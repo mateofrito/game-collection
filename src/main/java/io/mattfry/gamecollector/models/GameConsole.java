@@ -6,6 +6,7 @@ import java.util.Collection;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -23,13 +24,22 @@ public class GameConsole {
 	//@JsonIgnore
 	@OneToMany(mappedBy="gameConsole")
 	private Collection<Game> games;
+	@ManyToOne
+	@JsonIgnore
+	private Company company;
+	
+	
 	
 	public GameConsole() {
 		
 	}
 	
+
+
 	
-	public GameConsole(String consoleName, String shortName, String imagePath) {
+	
+	
+	public GameConsole(String consoleName, String shortName, String imagePath, Company company) {
 		
 		this.consoleName = consoleName;
 		this.shortName = shortName;
@@ -41,9 +51,7 @@ public class GameConsole {
 		return consoleName;
 	}
 	
-	public Collection<Game> getGame(){
-		return games;
-	}
+	
 	
 	
 	public String getShortName() {
@@ -54,6 +62,14 @@ public class GameConsole {
 		return imagePath;
 	}
 
+	public Collection<Game> getGames() {
+		return games;
+	}
+	
+	
+	public Company getCompany() {
+		return company;
+	}
 
 
 
@@ -62,11 +78,14 @@ public class GameConsole {
 		return id;
 	}
 
+
 	@Override
 	public String toString() {
 		return "GameConsole [id=" + id + ", consoleName=" + consoleName + ", shortName=" + shortName + ", imagePath="
-				+ imagePath + ", games=" + games + "]";
+				+ imagePath + ", games=" + games + ", company=" + company + "]";
 	}
+
+	
 
 
 	

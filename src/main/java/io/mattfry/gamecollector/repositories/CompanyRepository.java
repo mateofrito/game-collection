@@ -6,4 +6,6 @@ import io.mattfry.gamecollector.models.Company;
 
 public interface CompanyRepository extends CrudRepository<Company, Long>{
 
+	Company findByCompanyName(String string);
+
 }

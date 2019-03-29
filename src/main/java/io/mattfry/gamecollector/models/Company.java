@@ -19,11 +19,9 @@ public class Company {
 	private String imagePath;
 	
 	@OneToMany(mappedBy="company")
-	@JsonIgnore
 	private Collection<GameConsole> gameConsole;
 	
 	@OneToMany(mappedBy="company")
-	@JsonIgnore
 	private Collection<Game> games;
 	
 	
@@ -41,6 +39,8 @@ public class Company {
 		
 		
 	}
+	
+	
 	
 	
 	public Long getId() {

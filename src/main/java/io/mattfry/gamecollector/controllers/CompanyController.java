@@ -48,6 +48,10 @@ public class CompanyController {
 			imagePath = "http://mattfry.io/consoleicons/consolegeneric.png";
 		}
 		
+		if (companyName.isEmpty()) {
+			companyName = "Unknown";
+		}
+		
 		
 		companyRepo.save(new Company(companyName, imagePath));
 		return (Collection<GameConsole>) consoleRepo.findAll();

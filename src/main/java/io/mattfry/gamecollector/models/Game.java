@@ -20,6 +20,10 @@ public class Game {
 	@ManyToOne
 	@JsonIgnore
 	private GameConsole gameConsole;
+	
+	@ManyToOne
+	@JsonIgnore
+	private Company company;
 
 	
 
@@ -33,7 +37,7 @@ public class Game {
 
 
 
-	public Game(String gameTitle, String yearReleased, String imagePath, GameConsole gameConsole) {
+	public Game(String gameTitle, String yearReleased, String imagePath, GameConsole gameConsole, Company testCompany) {
 			this.gameTitle = gameTitle;
 			this.yearReleased = yearReleased;
 			this.imagePath = imagePath;
@@ -44,6 +48,10 @@ public class Game {
 	public GameConsole getGameConsole(){
 		return gameConsole;
 		
+	}
+	
+	public Company getCompany() {
+		return company;
 	}
 
 

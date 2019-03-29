@@ -60,7 +60,8 @@ public class GamecollectorApplicationTests {
 
 	@Test
 	public void shouldSaveandLoadConsole() {
-		GameConsole testConsole = consoleRepo.save(new GameConsole("Nintendo Entertainment System", "NES","http://mattfry.io/consoleicons/nes.png"));
+		Company testCompany = companyRepo.save(new Company("Nintendo", "http://mattfry.io/consoleicons/nes.png" ));
+		GameConsole testConsole = consoleRepo.save(new GameConsole("Nintendo Entertainment System", "NES","http://mattfry.io/consoleicons/nes.png", testCompany));
 		Long consoleID = testConsole.getId();
 		
 		
@@ -78,8 +79,9 @@ public class GamecollectorApplicationTests {
 	
 	@Test
 	public void shouldSaveandLoadGame() {
-		GameConsole testConsole = consoleRepo.save(new GameConsole("Nintendo Entertainment System", "NES","http://mattfry.io/consoleicons/nes.png"));
-		Game testGame = gameRepo.save(new Game("Super Mario Bros", "1985", "http://mattfry.io/gameimages/smb.jpg", testConsole));
+		Company testCompany = companyRepo.save(new Company("Nintendo", "http://mattfry.io/consoleicons/nes.png" ));
+		GameConsole testConsole = consoleRepo.save(new GameConsole("Nintendo Entertainment System", "NES","http://mattfry.io/consoleicons/nes.png", testCompany));
+		Game testGame = gameRepo.save(new Game("Super Mario Bros", "1985", "http://mattfry.io/gameimages/smb.jpg", testConsole, testCompany));
 		Long gameID = testGame.getId();
 		
 		
@@ -90,7 +92,7 @@ public class GamecollectorApplicationTests {
         Optional<Game> gameToFind = gameRepo.findById(gameID);
         testGame = gameToFind.get();
         
-        assertThat(testGame.getGameTitle(), is("Super Mario World"));
+        assertThat(testGame.getGameTitle(), is("Super Mario Bros"));
         
 		
 		
