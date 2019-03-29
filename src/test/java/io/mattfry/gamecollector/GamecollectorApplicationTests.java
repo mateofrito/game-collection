@@ -6,8 +6,10 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.context.junit4.SpringRunner;
 
+import io.mattfry.gamecollector.models.Company;
 import io.mattfry.gamecollector.models.Game;
 import io.mattfry.gamecollector.models.GameConsole;
+import io.mattfry.gamecollector.repositories.CompanyRepository;
 import io.mattfry.gamecollector.repositories.ConsoleRepository;
 import io.mattfry.gamecollector.repositories.GameRepository;
 
@@ -33,10 +35,32 @@ public class GamecollectorApplicationTests {
 	
 	@Resource
 	private GameRepository gameRepo;
+	
+	@Resource
+	private CompanyRepository companyRepo;
+	
+	@Test
+	public void shouldSaveandLoadCompany() {
+		Company testCompany = companyRepo.save(new Company("Nintendo", "http://mattfry.io/consoleicons/nes.png" ));
+		Long companyID = testCompany.getId();
+		
+		entityManager.persist(testCompany);
+        entityManager.flush();
+        entityManager.clear();
+        
+        Optional<Company> companyToFind = companyRepo.findById(companyID);
+        testCompany = companyToFind.get();
+        
+        assertThat(testCompany.getCompanyName(), is("Nintendo"));
+		
+		
+		
+		
+	}
 
 	@Test
 	public void shouldSaveandLoadConsole() {
-		GameConsole testConsole = consoleRepo.save(new GameConsole("Nintendo Entertainment System", "NES"));
+		GameConsole testConsole = consoleRepo.save(new GameConsole("Nintendo Entertainment System", "NES","http://mattfry.io/consoleicons/nes.png"));
 		Long consoleID = testConsole.getId();
 		
 		
@@ -54,8 +78,8 @@ public class GamecollectorApplicationTests {
 	
 	@Test
 	public void shouldSaveandLoadGame() {
-		GameConsole testConsole = consoleRepo.save(new GameConsole("Super Nintendo", "SNES"));
-		Game testGame = gameRepo.save(new Game("Super Mario World", testConsole, "1992", "ImagePath"));
+		GameConsole testConsole = consoleRepo.save(new GameConsole("Nintendo Entertainment System", "NES","http://mattfry.io/consoleicons/nes.png"));
+		Game testGame = gameRepo.save(new Game("Super Mario Bros", "1985", "http://mattfry.io/gameimages/smb.jpg", testConsole));
 		Long gameID = testGame.getId();
 		
 		
