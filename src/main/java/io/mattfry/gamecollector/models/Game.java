@@ -74,6 +74,17 @@ public class Game {
 	public String getImagePath() {
 		return imagePath;
 	}
+	
+	
+
+
+
+
+
+
+
+
+	
 
 
 
