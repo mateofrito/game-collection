@@ -26,7 +26,7 @@ function main() {
                 imagePath: imagePath,
                 company: company,
                 gameConsole: gameConsole
-              }, (gameconsoles) => getAppContext().innerHTML = GameConsoles(gameconsoles))
+               }, (gameconsoles) => getAppContext().innerHTML = GameConsoles(gameconsoles))
             }
           })
   events.on(getAppContext(), 'click', () => {

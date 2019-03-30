@@ -1,7 +1,8 @@
 export default function Games(games) {
     return games.map(game => {
+        console.log(games)
             return `
-            
+                
                 <li class="game">
                     <img class="game__imagepath" src="${game.imagePath}"></img>
                     <p><h3 class="game__title">${game.gameTitle}</h3>
