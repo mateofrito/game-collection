@@ -2,6 +2,7 @@ import events from './utils/events/event-actions'
 import api from './utils/api/api-actions'
 import Games from './components/Games'
 import GameConsoles from './components/GameConsoles'
+import Company from './components/Company'
 
 main()
 
@@ -26,7 +27,8 @@ function main() {
                 imagePath: imagePath,
                 company: company,
                 gameConsole: gameConsole
-               }, (gameconsoles) => getAppContext().innerHTML = GameConsoles(gameconsoles))
+               }, (games) => getAppContext().innerHTML = Games(games))
+               location.reload()
             }
           })
   events.on(getAppContext(), 'click', () => {
@@ -45,25 +47,25 @@ function main() {
             }, (gameconsoles) => getAppContext().innerHTML = GameConsoles(gameconsoles))
           }
         })
-
-
-          //new company
-          // if (event.target.classList.contains('add-company__submit')) {
-          //   const gameTitle = document.querySelector('.add-game__name').value
-          //   const yearReleased = document.querySelector('.add-game__yearreleased').value
-          //   const imagePath = document.querySelector('.add-console__image-path').value
-          //   const gameConsole = document.querySelector('.add-console__forgames').value
+        events.on(getAppContext(), 'click', () => {
+          //company submit
+          if (event.target.classList.contains('add-company__submit')) {
+            const company= document.querySelector('.add-company__name').value
+            const imagePath = document.querySelector('.add-company__image-path').value
             
-          //     api.postRequest('/company/add', {
-          //     gameTitle: gameTitle,
-          //     yearReleased: yearReleased,
-          //     imagePath: imagePath,
-          //     gameConsole: gameConsole
-          //   }, (games) => getAppContext().innerHTML = Games(games))
-          // }
+            
+              api.postRequest('/company/add', {
+              company: company,
+              
+              imagePath: imagePath
+             
+             }, (company) => getAppContext().innerHTML = Company(company))
+             location.reload()
+          }
+        })     
 
 
-          //add console modal
+         
           events.on(getAppContext(), 'click', () => {
           if (event.target.classList.contains('console-trigger')){
                     var consolemodal = document.querySelector(".modal-console");
@@ -140,29 +142,54 @@ function main() {
 
 
       }
-      //console accordions
-      // if (event.target.classList.contains('console__header')){
-      //     var accordion = document.getElementsByClassName("console__header");
-      //     var i;
-      //           for (i = 0; i < accordion.length; i++) {
-      //             accordion[i].addEventListener("click", function() {
-      //               this.classList.toggle("active");
-      //               var panel = this.nextElementSibling;
-      //               if (panel.style.display === "block") {
-      //                 panel.style.display = "none";
-      //               } else {
-      //                 panel.style.display = "block";
-      //               }
-      //             });
-      //           }
-           
+      
+ //add company modal
+ if (event.target.classList.contains('company-trigger')){
+  var companymodal = document.querySelector(".modal-company");
+  var companytrigger = document.querySelector(".company-trigger")
+  var closeButton3 = document.querySelector(".close-button3");
+  
+  function toggleCompanyModal() {
+    companymodal.classList.toggle("show-companymodal");
+  }
+  
+  function windowOnCompanyClick(event) {
+    if (event.target === companymodal) {
+        toggleCompanyModal();
+    }
+  }
+  companytrigger.addEventListener("click", toggleCompanyModal);
+  closeButton3.addEventListener("click", toggleCompanyModal);
+  window.addEventListener("click", windowOnCompanyClick);
+
+}
+
+//company close button
+if (event.target.classList.contains('close-button3')){
+  var closeButton = document.querySelector(".close-button3");
+  var companymodal = document.querySelector(".modal-company");
+
+  function closeTheGoddamnModal(){
+    companymodal.classList.toggle("show-companymodal");
+
+  }
+
+  closeButton.addEventListener("click", closeTheGoddamnModal);
+
+
+}
 
 
 
 
 
 
-      //         }
+
+
+
+
+
+
 
 
 

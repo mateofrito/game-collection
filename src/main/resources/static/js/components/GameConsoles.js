@@ -5,7 +5,7 @@ export default function GameConsoles(gameconsoles) {
     <div class="buttons">
         <button class="console-trigger">Add Console</button>
         <button class="game-trigger">Add Game</button>
-        <button class="game-trigger">Add Publisher/Manufacture</button>
+        <button class="company-trigger">Add Publisher/Manufacture</button>
     </div>
     <div class ="modal-console">
         <div class="consolemodal-content">
