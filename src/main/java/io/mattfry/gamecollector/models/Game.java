@@ -1,9 +1,15 @@
 package io.mattfry.gamecollector.models;
 
+import java.util.Collection;
+import java.util.ArrayList;
+import java.util.Arrays;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
+
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
@@ -20,6 +26,9 @@ public class Game {
 	@ManyToOne
 	@JsonIgnore
 	private GameConsole gameConsole;
+	
+	@ManyToMany
+	private Collection<Company> company;
 
 	
 
@@ -33,17 +42,22 @@ public class Game {
 
 
 
-	public Game(String gameTitle, String yearReleased, String imagePath, GameConsole gameConsole) {
+	public Game(String gameTitle, String yearReleased, String imagePath, GameConsole gameConsole, Company ...company) {
 			this.gameTitle = gameTitle;
 			this.yearReleased = yearReleased;
 			this.imagePath = imagePath;
 			this.gameConsole = gameConsole;
+			this.company = Arrays.asList(company);
 
 	}
 	
 	public GameConsole getGameConsole(){
 		return gameConsole;
 		
+	}
+	
+	public Collection<Company> getCompany() {
+		return company;
 	}
 
 
@@ -60,6 +74,17 @@ public class Game {
 	public String getImagePath() {
 		return imagePath;
 	}
+	
+	
+
+
+
+
+
+
+
+
+	
 
 
 

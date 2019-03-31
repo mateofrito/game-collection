@@ -16,52 +16,51 @@ import io.mattfry.gamecollector.models.Company;
 import io.mattfry.gamecollector.models.GameConsole;
 import io.mattfry.gamecollector.repositories.CompanyRepository;
 import io.mattfry.gamecollector.repositories.ConsoleRepository;
+import io.mattfry.gamecollector.repositories.GameRepository;
 
 @RestController
-@RequestMapping("/consoles")
+@RequestMapping("/company")
 
-public class GameConsoleController {
-	
-	@Resource
-	ConsoleRepository consoleRepo;
+public class CompanyController {
 	
 	@Resource
 	CompanyRepository companyRepo;
+	@Resource
+	GameRepository gameRepo;
+	@Resource
+	ConsoleRepository consoleRepo;
 	
 	@GetMapping("")
-	public Collection<GameConsole> getConsoles(){
-		return (Collection<GameConsole>) consoleRepo.findAll();
+	public Collection<Company> getCompany(){
+		return (Collection<Company>)companyRepo.findAll();
+		
 		
 	}
 	
 	@PostMapping("/add")
-	public Collection<GameConsole> addGameConsole(@RequestBody String body) throws JSONException{
+	public Collection<GameConsole> addCompany(@RequestBody String body) throws JSONException {
 		
-		JSONObject json = new JSONObject(body);
-		String consoleName = json.getString("consoleName");
-		String shortName = json.getString("shortName");
-		String imagePath = json.getString("imagePath");
-		String companyNameString = json.getString("companyName");
-		
-		Company companyName = companyRepo.findByCompanyName(companyNameString);
+		JSONObject newCompany = new JSONObject(body);
+		String companyName = newCompany.getString("company");
+		String imagePath = newCompany.getString("imagePath");
 		
 		if (imagePath.isEmpty()) {
 			imagePath = "http://mattfry.io/consoleicons/consolegeneric.png";
-		
 		}
 		
-		if (companyNameString.isEmpty()) {
-			companyNameString ="unknown";
+		if (companyName.isEmpty()) {
+			companyName = "Unknown";
 		}
 		
 		
-		consoleRepo.save(new GameConsole(consoleName, shortName, imagePath, companyName));
+		companyRepo.save(new Company(companyName, imagePath));
+		return (Collection<GameConsole>) consoleRepo.findAll();
 		
-		return(Collection<GameConsole>) consoleRepo.findAll();
 		
 		
 		
 	}
+	
 	
 
 }
